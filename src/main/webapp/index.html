@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<title>Home</title>
+	<!-- Importando a fonte: -->
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/index_css.css">
+</head>
+<body>
+	
+	<nav>
+		<img src="imgs/index/logo.webp" alt="logo">
+		<form action="FrontController" method="POST">
+			<label for="index_nick_login">Login</label>
+			<input type="text" name="nick" id="index_nick_login">
+			<label for="index_senha_login">Senha</label>
+			<input type="text" name="senha" id="index_senha_login">
+			<input type="hidden" name="acao" value="login">
+			<input type="submit" value="Entrar">
+		</form>
+	</nav>
+
+	<section>
+		<h1>Cadastro</h1>
+		<form action="controller" method="POST" name="form_cadastro" onsubmit="">
+			<label for="index_nome_cadastro">Nome:</label><br>
+			<input type="text" name="nome" id="index_nome_cadastro"><br>
+			<label for="index_sobrenome_cadastro">Sobrenome:</label><br>
+			<input type="text" name="sobrenome" id="index_sobrenome_cadastro"><br>
+			<label for="index_nick_cadastro">Apelido:</label><br>
+			<input type="text" name="nick" id="index_nick_cadastro"><br>
+
+			<label for="index_image_cadastro">Foto de Perfil:</label><br>
+			<input type="file" accept="image/*" name="image" id="index_image_cadastro"><br>
+
+			<label for="index_data_cadastro">Data de Nascimento:</label><br>
+			<input type="date" name="data" id="index_data_cadastro"><br>
+
+			<label for="index_email_cadastro">Email:</label><br>
+			<input type="email" name="email" id="index_email_cadastro"><br>
+
+			<label for="index_senha_cadastro">Senha:</label><br>
+			<input type="password" name="senha" id="index_senha_cadastro"><br>
+			<label for="index_confirmasenha_cadastro">Confirma a Senha:</label><br>
+			<input type="password" id="index_confirmasenha_cadastro" name="confirmasenha"><br>
+
+			<input type="hidden" name="acao" value="cadastro">
+
+			<input type="submit" value="Enviar">
+		</form>
+	</section>
+	<script src="js/validate/validate_index.js"></script>
+</body>
+</html>

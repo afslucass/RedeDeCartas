@@ -1,0 +1,43 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+     http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+    version="2.0">
+
+ <persistence-unit name="rede_de_cartas">
+
+   <!-- provedor/implementacao do JPA -->
+   <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+   <!-- entidade mapeada -->
+   <class>com.br.rede_de_cartas.database.table.UserTable</class>
+   <class>com.br.rede_de_cartas.database.table.MessageTable</class>
+
+   <properties>
+    <!-- dados da conexao -->
+    <property name="javax.persistence.jdbc.driver" 
+            value="com.mysql.jdbc.Driver" />
+    <property name="javax.persistence.jdbc.url" 
+            value="jdbc:mysql://localhost/RedeDeCartas?autoReconnect=true&amp;useUnicode=true&amp;createDatabaseIfNotExist=true&amp;characterEncoding=utf-8" />
+    <property name="javax.persistence.jdbc.user" 
+            value="root" />
+    <property name="javax.persistence.jdbc.password" 
+            value="" />
+
+     <!--  propriedades do hibernate -->
+    <property name="hibernate.dialect" 
+            value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+    <property name="hibernate.show_sql" value="true" />
+    <property name="hibernate.format_sql" value="true" />
+
+    <!-- UTF-8 Encoding -->
+    <property name="hibernate.connection.CharSet">utf8</property>
+    <property name="hibernate.connection.characterEncoding">utf8</property>
+    <property name="hibernate.connection.useUnicode">true</property>
+
+    <!--  atualiza o banco, gera as tabelas se for preciso -->
+    <property name="hibernate.hbm2ddl.auto" value="update" />
+
+   </properties>
+ </persistence-unit>
+</persistence>
