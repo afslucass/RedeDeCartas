@@ -18,7 +18,7 @@
     <property name="javax.persistence.jdbc.driver" 
             value="com.mysql.jdbc.Driver" />
     <property name="javax.persistence.jdbc.url" 
-            value="jdbc:mysql://localhost/RedeDeCartas?autoReconnect=true&amp;useUnicode=true&amp;createDatabaseIfNotExist=true&amp;characterEncoding=utf-8" />
+            value="jdbc:mysql://localhost/RedeDeCartas" />
     <property name="javax.persistence.jdbc.user" 
             value="root" />
     <property name="javax.persistence.jdbc.password" 
@@ -31,9 +31,9 @@
     <property name="hibernate.format_sql" value="true" />
 
     <!-- UTF-8 Encoding -->
-    <property name="hibernate.connection.CharSet">utf8</property>
-    <property name="hibernate.connection.characterEncoding">utf8</property>
-    <property name="hibernate.connection.useUnicode">true</property>
+    <property name="hibernate.connection.CharSet" value="utf8" />
+    <property name="hibernate.connection.characterEncoding" value="utf8" />
+    <property name="hibernate.connection.useUnicode" value="true" />
 
     <!--  atualiza o banco, gera as tabelas se for preciso -->
     <property name="hibernate.hbm2ddl.auto" value="update" />
