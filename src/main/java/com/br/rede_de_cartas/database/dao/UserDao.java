@@ -31,8 +31,8 @@ public class UserDao {
     }
     public UserTable getUserByNameAndPassword(String name, String password){
         manager = factory.createEntityManager();
-        Query query = (Query) manager.createQuery("SELECT c FROM UserTable AS c WHERE c.nome = :nome AND c.senha = :senha ");
-        query.setParameter("nome", name);
+        Query query = (Query) manager.createQuery("SELECT c FROM UserTable AS c WHERE c.nome = :nick AND c.senha = :senha ");
+        query.setParameter("nick", name);
         query.setParameter("senha", password);
         
         UserTable user = (UserTable)query.uniqueResult();

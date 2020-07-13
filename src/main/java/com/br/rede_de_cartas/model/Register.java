@@ -36,7 +36,7 @@ public class Register implements ModelInterface {
 
         part = request.getPart("nick").getInputStream();
         byte[] nick_bytes = new byte[part.available()];
-        part.read(sobrenome_bytes);
+        part.read(nick_bytes);
         String nick = new String(nick_bytes);
 
         Calendar data = Calendar.getInstance();

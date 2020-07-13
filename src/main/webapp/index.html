@@ -11,12 +11,11 @@
 	
 	<nav>
 		<img src="imgs/index/logo.webp" alt="logo">
-		<form action="controller" method="POST">
+		<form action="controller" method="GET">
 			<label for="index_nick_login">Login</label>
 			<input type="text" name="nick" id="index_nick_login">
 			<label for="index_senha_login">Senha</label>
 			<input type="text" name="senha" id="index_senha_login">
-			<input type="hidden" name="acao" value="login">
 			<input type="submit" value="Entrar">
 		</form>
 	</nav>
@@ -45,8 +44,6 @@
 			<input type="password" name="senha" id="index_senha_cadastro"><br>
 			<label for="index_confirmasenha_cadastro">Confirma a Senha:</label><br>
 			<input type="password" id="index_confirmasenha_cadastro" name="confirmasenha"><br>
-
-			<input type="hidden" name="acao" value="cadastro">
 
 			<input type="submit" value="Enviar">
 		</form>
