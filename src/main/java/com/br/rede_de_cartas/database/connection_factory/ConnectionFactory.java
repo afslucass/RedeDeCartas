@@ -5,7 +5,7 @@ import javax.persistence.Persistence;
 
 public class ConnectionFactory {
     public EntityManagerFactory getConnection(){
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("real");
+        EntityManagerFactory factory = Persistence.createEntityManagerFactory("rede_de_cartas");
         return factory;
     }
 }

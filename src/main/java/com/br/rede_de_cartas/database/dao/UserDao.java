@@ -12,6 +12,7 @@ import org.hibernate.query.Query;
 public class UserDao {
     EntityManagerFactory factory;
     EntityManager manager;
+    
     public UserDao(EntityManagerFactory factory){
         this.factory = factory;
     }
