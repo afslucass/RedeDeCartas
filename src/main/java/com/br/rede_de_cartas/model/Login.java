@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.br.rede_de_cartas.database.dao.UserDao;
 import com.br.rede_de_cartas.database.table.UserTable;
 import com.br.rede_de_cartas.model.interfaces.ModelInterface;
+import com.br.rede_de_cartas.util.SessionManager;
 
 public class Login implements ModelInterface{
     @Override
@@ -21,8 +22,10 @@ public class Login implements ModelInterface{
         UserTable getUser = new UserDao((EntityManagerFactory)request.getAttribute("factory")).getUserByNameAndPassword(nick, senha);
 
         if(getUser == null){
-            return "nao logado";
+            return "index.html";
         }
-        return "logado";
+
+        new SessionManager(request).createSession(getUser);
+        return "WEB-INF/jsp/home.jsp";
     }
 }

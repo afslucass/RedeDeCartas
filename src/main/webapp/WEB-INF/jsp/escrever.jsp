@@ -5,15 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/escrever_css.css">
-    <title>-nOME AD AUTORA-</title>
+    <link rel="stylesheet" href="css/escrever_css.css">
+    <title>Carta de ${sessionScope.user_attributes.nome}</title>
 </head>
 <body>
     
     <c:import url="nav.jsp" />
     
     <nav>
-        <h1>--nick da autora-- <br> --nick da nome conpleto--</h1>
+        <h1>${sessionScope.user_attributes.nick}<br>${sessionScope.user_attributes.nome}</h1>
     </nav>
 
     <section>

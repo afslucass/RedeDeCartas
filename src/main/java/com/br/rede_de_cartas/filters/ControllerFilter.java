@@ -13,17 +13,18 @@ import javax.servlet.annotation.WebFilter;
 
 import com.br.rede_de_cartas.database.connection_factory.ConnectionFactory;
 
-@WebFilter("/controller")
+@WebFilter(urlPatterns = {"/*"})
 public class ControllerFilter implements Filter {
-
+    
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
+        
     }
 
     @Override
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
-            throws IOException, ServletException {
+    throws IOException, ServletException {
+        
         EntityManagerFactory factory = new ConnectionFactory().getConnection();
         request.setAttribute("factory", factory); 
 
@@ -34,8 +35,7 @@ public class ControllerFilter implements Filter {
 
     @Override
     public void destroy() {
-        // TODO Auto-generated method stub
-
+        
     }
     
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Calendar;
 
 import javax.persistence.EntityManagerFactory;
@@ -15,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.br.rede_de_cartas.database.dao.UserDao;
 import com.br.rede_de_cartas.database.table.UserTable;
 import com.br.rede_de_cartas.model.interfaces.ModelInterface;
+import com.br.rede_de_cartas.util.SessionManager;
 
 @MultipartConfig
 public class Register implements ModelInterface {
@@ -57,6 +59,7 @@ public class Register implements ModelInterface {
         part = request.getPart("image").getInputStream();
         byte[] foto = new byte[part.available()];
         part.read(foto);
+        foto = Base64.getEncoder().encode(foto);
 
         part = request.getPart("email").getInputStream();
         byte[] email_bytes = new byte[part.available()];
@@ -83,9 +86,14 @@ public class Register implements ModelInterface {
 
         System.out.println(nome);
         
-        new UserDao((EntityManagerFactory)request.getAttribute("factory")).addUser(user);
+        
+        UserDao dao = new UserDao((EntityManagerFactory) request.getAttribute("factory"));
+        dao.addUser(user);
+        UserTable user_para_autenticar = dao.getUserByNameAndPassword(nick, senha);
 
-        return "deu certo";
+        new SessionManager(request).createSession(user_para_autenticar);
+
+        return "WEB-INF/jsp/home.jsp";
     }
     
 }

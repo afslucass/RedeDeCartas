@@ -11,7 +11,7 @@
 	
 	<nav>
 		<img src="imgs/index/logo.webp" alt="logo">
-		<form action="controller" method="GET">
+		<form action="login" method="POST">
 			<label for="index_nick_login">Login</label>
 			<input type="text" name="nick" id="index_nick_login">
 			<label for="index_senha_login">Senha</label>
@@ -23,7 +23,7 @@
 	<section>
 		<h1>Cadastro</h1>
 		<!-- Acheii: É o multipart -->
-		<form action="controller" method="POST" enctype="multipart/form-data" name="form_cadastro" onsubmit="return validar()"
+		<form action="register" method="POST" enctype="multipart/form-data" name="form_cadastro" onsubmit="return validar()"
 			<label for="index_nome_cadastro">Nome:</label><br>
 			<input type="text" name="nome" id="index_nome_cadastro"><br>
 			<label for="index_sobrenome_cadastro">Sobrenome:</label><br>

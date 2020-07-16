@@ -29,10 +29,10 @@ public class UserDao {
         manager.close();
         return list;
     }
-    public UserTable getUserByNameAndPassword(String name, String password){
+    public UserTable getUserByNameAndPassword(String nick, String password){
         manager = factory.createEntityManager();
-        Query query = (Query) manager.createQuery("SELECT c FROM UserTable AS c WHERE c.nome = :nick AND c.senha = :senha ");
-        query.setParameter("nick", name);
+        Query query = (Query) manager.createQuery("SELECT c FROM UserTable AS c WHERE c.nick = :nick AND c.senha = :senha ");
+        query.setParameter("nick", nick);
         query.setParameter("senha", password);
         
         UserTable user = (UserTable)query.uniqueResult();
