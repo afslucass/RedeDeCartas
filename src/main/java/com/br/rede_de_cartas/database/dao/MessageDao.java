@@ -11,9 +11,9 @@ public class MessageDao {
     EntityManagerFactory factory;
     EntityManager manager;
 
-    public MessageDao(EntityManagerFactory factory, EntityManager manager){
+    public MessageDao(EntityManagerFactory factory){
         this.factory = factory;
-        this.manager = manager;
+        this.manager = factory.createEntityManager();
     }
 
     public MessageTable getMessageById(Long id){
