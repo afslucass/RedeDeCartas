@@ -17,8 +17,9 @@
     </nav>
 
     <section>
-        <form name="form" action="#" method="POST" onclick="return validar()">
+        <form name="form" action="action" method="POST" onclick="return validar()">
             <textarea name="text" cols="120" rows="60" placeholder="Escreva aqui"></textarea>
+            <input type="hidden" name="mensagem" value="criar">
             <input type="submit" value="Enviar">
         </form>
     </section>

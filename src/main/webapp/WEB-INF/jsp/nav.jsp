@@ -15,10 +15,10 @@
 			<div>${sessionScope.user_attributes.nick}</div>
 		</div>
 
-		<p> <a href="action?mensagem=to_vazando">LOGOUT</a> </p>
+		<p> <a href="action?mensagem=sair">LOGOUT</a> </p>
 	</nav>
 	<section class="section">
-		<button onclick="location.href='action'">Criar</button>
+		<button onclick="location.href='action?mensagem=escrever'">Criar</button>
 	</section>
 
 </body>

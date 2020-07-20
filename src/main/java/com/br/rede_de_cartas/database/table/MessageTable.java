@@ -10,26 +10,26 @@ public class MessageTable {
     @Id
     @GeneratedValue
     private Long id;
-    @Column(nullable = false)
+    @Column(nullable = false, length = 10000)
     private String message;
-    private String nome;
+    private String nick;
 
     public void setId(Long id) {
         this.id = id;
     }
     public Long getId() {
-        return id;
+        return this.id;
     }
     public void setMessage(String message) {
         this.message = message;
     }
     public String getMessage() {
-        return message;
+        return this.message;
     }
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNick(String nick) {
+        this.nick = nick;
     }
-    public String getNome() {
-        return nome;
+    public String getNick() {
+        return this.nick;
     }
 }
