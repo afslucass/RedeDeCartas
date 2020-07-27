@@ -8,3 +8,8 @@ Fiz um projetinho de uma mini rede social onde o usuario publica 'cartas' e as m
 ---
 
 Fico muito grato com qualquer contribuição, desde ja obrigado. 
+
+criar um array bean com as menssagens;
+criar um array bean como a foto e o nick;
+Converter as mensagens e fotos em json;
+escrever na saida;

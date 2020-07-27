@@ -15,13 +15,14 @@
     <section>
         <article>
             <div id="foto">
-                <img src="%" alt="foto">
+                <img src="data:image/jpeg;charset=utf-8;base64,${item.image}" alt="foto">
             </div>
-            <div id="nick">nick</div>
-            <div id="descricao">eu sou legal eu sou legal eu sou legal eu sou legaeu sou legal eu sou legal eu sou legal eu sou legaleu sou legal eu sou legal eu sou legal eu sou legall</div>
-            <button>Enviar</button>
+            <div id="nick">${item.nick}</div>
+            <div id="descricao">${item.message}</div>
+            <button>Visualizar</button>
         </article>
-        
     </section>
+
+    <script src="js/ajax/ajax_home.js"></script>
 </body>
 </html>
