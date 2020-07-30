@@ -26,6 +26,6 @@ public class Login implements ModelInterface{
         }
 
         new SessionManager(request).createSession(getUser);
-        return "WEB-INF/jsp/home.jsp";
+        return "WEB-INF/jsp/home2.jsp";
     }
 }

@@ -93,7 +93,7 @@ public class Register implements ModelInterface {
 
         new SessionManager(request).createSession(user_para_autenticar);
 
-        return "WEB-INF/jsp/home.jsp";
+        return "WEB-INF/jsp/home2.jsp";
     }
     
 }

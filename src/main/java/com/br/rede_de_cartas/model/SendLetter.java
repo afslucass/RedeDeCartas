@@ -26,7 +26,7 @@ public class SendLetter implements ModelInterface{
 		
 		new MessageDao((EntityManagerFactory) request.getAttribute("factory")).addMessage(message);
 
-		return "WEB-INF/jsp/home.jsp";
+		return "WEB-INF/jsp/home2.jsp";
 	}
     
 }

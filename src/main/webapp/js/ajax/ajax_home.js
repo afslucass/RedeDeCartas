@@ -19,14 +19,31 @@
 
 async function ajax(){
     let req = await fetch("action", { method: 'POST',
-                                      headers: {'Content-type': 'application/x-www-form-urlencoded'},
+                                      headers: {'Content-type': 'application/json;charset=utf-8'},
                                       body: 'mensagem=mostrar', })
     let json = await req.json()
-    console.log(JSON.stringify(json))
+    TrataDadosDaAjax(json)
 }
 
 ajax()
 
+function TrataDadosDaAjax(json) {
+    let section = document.querySelector("#posts")
+    
+    json.attributes.forEach(element => {
+        
+        let novoPost = document.createElement("article")
+        
+        let foto = "";
+        for(let i = 0; i < json.images.length; i++){
+            if(element.nick == json.images[i].nick){
+                foto = json.images[i].image
+                break
+            }
+        }
+        novoPost.innerHTML = 
+            `<div id=foto><img src='data:image/jpeg;charset=utf-8;base64,${foto}' alt='foto'></div><div id='nick'>${element.nick}</div><div id='descricao'>${element.message}...</div><form method="POST" action="action"><input type="hidden" name="mensagem" value="visualizar"><input type="hidden" name="id" value="${element.id}"><input type="submit" value="Visualizar"></form>`
 
-// Trata o Response:
-
+        section.appendChild(novoPost)    
+        });
+}

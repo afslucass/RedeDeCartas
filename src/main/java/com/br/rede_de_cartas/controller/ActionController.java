@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.br.rede_de_cartas.model.LoadHome;
+import com.br.rede_de_cartas.model.LoadViewer;
 import com.br.rede_de_cartas.model.SendLetter;
 import com.br.rede_de_cartas.util.SessionManager;
 
@@ -25,21 +26,30 @@ public class ActionController extends HttpServlet{
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
         String mensagem = request.getParameter("mensagem");
         String redirecionador = "";
         
         if(mensagem.equals("criar")){
             redirecionador = new SendLetter().execute(request, response);
-        }
-        if(mensagem.equals("mostrar")){
+        } else if(mensagem.equals("mostrar")){
             redirecionador = new LoadHome().execute(request, response);
+        } else if(mensagem.equals("visualizar")){
+            redirecionador = new LoadViewer().execute(request, response);
         }
 
         RequestDispatcher disp = request.getRequestDispatcher(redirecionador);
         disp.forward(request, response);
+        
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+
         String mensagem = request.getParameter("mensagem");
         String redirecionador = "";
 

@@ -9,7 +9,9 @@ Fiz um projetinho de uma mini rede social onde o usuario publica 'cartas' e as m
 
 Fico muito grato com qualquer contribuição, desde ja obrigado. 
 
-criar um array bean com as menssagens;
-criar um array bean como a foto e o nick;
-Converter as mensagens e fotos em json;
-escrever na saida;
+Mudança de Arquitetura:
+
+-> O servidor so vai mandar 175 caracteres da mensagem para a home.
+-> Os botoes de visualizar serao substituidos por formularios que irao enviar para o servidor o id da mensagem.
+-> O servidor ira tratar o id e mantar para 'visualizar.jsp' o nick, imagem, mensagem e o id da menssagem. 
+-> 'visualizar.jsp' exibe os dados utilizando expression language.
