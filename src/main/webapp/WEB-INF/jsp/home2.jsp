@@ -26,6 +26,6 @@
         </article> --%>
     </section>
 
-    <script src="js/ajax/ajax_home.js"></script>
+    <script src="js/ajax/ajax.js"></script>
 </body>
 </html>

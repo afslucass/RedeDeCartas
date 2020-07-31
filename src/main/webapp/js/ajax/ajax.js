@@ -19,8 +19,8 @@
 
 async function ajax(){
     let req = await fetch("action", { method: 'POST',
-                                      headers: {'Content-type': 'application/json;charset=utf-8'},
-                                      body: 'mensagem=mostrar', })
+                                      headers: {'Content-type': 'application/x-www-form-urlencoded; charset=UTF-8'},
+                                      body: 'mensagem=mostrar' })
     let json = await req.json()
     TrataDadosDaAjax(json)
 }

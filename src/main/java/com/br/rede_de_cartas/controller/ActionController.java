@@ -31,6 +31,8 @@ public class ActionController extends HttpServlet{
 
         String mensagem = request.getParameter("mensagem");
         String redirecionador = "";
+
+        System.out.println(mensagem);
         
         if(mensagem.equals("criar")){
             redirecionador = new SendLetter().execute(request, response);
