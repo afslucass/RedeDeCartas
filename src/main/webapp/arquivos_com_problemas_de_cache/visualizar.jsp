@@ -1,4 +1,7 @@
 <%@	taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -12,12 +15,14 @@
     
     <c:import url="nav.jsp" />
     <nav>
-        <h1>--nick da autora-- <br> --nick da nome conpleto--</h1>
-        <div id="foto"><img src="#" alt="foto"></div>
+        <h1>${attributes.nick}<br>${nome}</h1>
+        <div id="foto"><img src="data:image/jpeg;charset=utf-8;base64,${attributes.image}" alt="foto"></div>
     </nav>
 
     <section>
-        texttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttext
+        ${attributes.message}
     </section>
+
+    <script src="js/view_message/view_message.js"></script>
 </body>
 </html>

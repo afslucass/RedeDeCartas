@@ -67,6 +67,8 @@ public class UserDao {
         }
 
         ArrayList<Object[]> list_bytes = (ArrayList<Object[]>) query.getResultList();
+        manager.close();
+
         ArrayList<LetterBean> list_bean = new ArrayList<>();
 
         for(int i = 0; i < list_bytes.size(); i++){
@@ -78,6 +80,18 @@ public class UserDao {
 
         return list_bean;
 
+    }
+
+    public UserTable getUserByNick(String nick){
+        String sql = "SELECT c FROM UserTable AS c WHERE c.nick = :nick";
+
+        manager = factory.createEntityManager();
+        Query query = (Query) manager.createQuery(sql);
+        query.setParameter("nick", nick);
+        UserTable user = (UserTable) query.uniqueResult();
+        manager.close();
+
+        return user;
     }
 
     public void removeUser(UserTable user){

@@ -14,7 +14,7 @@ h1{
     font-family: 'Roboto Condensed', sans-serif;
     font-size: 40px;
     margin-left: 20%;
-    color: #733ADE;
+    color: rgb(115, 58, 222);
 }
 
 /* CSS */
@@ -47,14 +47,22 @@ article {
     box-sizing: border-box;
     position: relative;
     margin: 20px;
+    background-color: rgb(115, 58, 222, 0.1);
 }
+
 article > #foto {
     height: 50%;
     width: 40%;
     background-color: #733ADE;
     margin-right: 20px;
     float: left;
+    display: flex;
+    justify-content:center;
 }  
+
+#foto > img {
+    height: 100%;
+}
 
 article > #nick {
     margin-bottom: 20px;
@@ -81,5 +89,5 @@ button:focus {
     background-color: #733ADE;
     color: white;
     outline: none;
-}
+} 
 

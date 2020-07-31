@@ -25,16 +25,20 @@ public class LoadHome implements ModelInterface {
         ArrayList<MessageTable> list_message = (ArrayList<MessageTable>) new MessageDao((EntityManagerFactory)request.getAttribute("factory")).getMessageList();
 
         ArrayList<LetterBean> list_images = new UserDao((EntityManagerFactory) request.getAttribute("factory")).getImageAndNickFromArraylistNick(list_message);
-        
+
+        String message_formated = "";
+        for(int i = 0; i < list_message.size(); i++){
+            if(list_message.get(i).getMessage().length() > 175){
+                message_formated = list_message.get(i).getMessage().substring(0, 175);
+                list_message.get(i).setMessage(message_formated);
+            }
+        }
+
         JSONObject json = new JSONObject();
 
-        for(int i = 0 ; i < list_message.size() ; i++){
-            json.put("attributes", list_message);
-        }
+        json.put("attributes", list_message);
 
-        for(int i = 0 ; i < list_images.size() ; i++){
-            json.put(list_images.get(i).getNick(), list_images.get(i).getImage());
-        }
+        json.put("images", list_images);
 
         request.setAttribute("attributes", json.toString());
  
