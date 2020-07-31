@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 
+import com.br.rede_de_cartas.bean.LetterBean;
+import com.br.rede_de_cartas.database.table.MessageTable;
 import com.br.rede_de_cartas.database.table.UserTable;
 
 import org.hibernate.query.Query;
@@ -46,6 +48,38 @@ public class UserDao {
         manager.getTransaction().commit();
         manager.close();
     }
+
+    public ArrayList<LetterBean> getImageAndNickFromArraylistNick(ArrayList<MessageTable> nicks){
+        
+        String sql = "SELECT c.nick, c.foto FROM UserTable AS c WHERE ";
+
+        for( MessageTable nick : nicks ){
+            sql = sql + "c.nick = :" + nick.getNick() + " OR ";
+        }
+
+        sql = sql.substring(0 , sql.length() - 4);
+
+        manager = factory.createEntityManager();
+        Query query = (Query) manager.createQuery(sql);
+
+        for( MessageTable nick : nicks){
+            query.setParameter(nick.getNick(), nick.getNick());
+        }
+
+        ArrayList<Object[]> list_bytes = (ArrayList<Object[]>) query.getResultList();
+        ArrayList<LetterBean> list_bean = new ArrayList<>();
+
+        for(int i = 0; i < list_bytes.size(); i++){
+            LetterBean bean = new LetterBean();
+            bean.setImage(new String((byte[])list_bytes.get(i)[1]));
+            bean.setNick(list_bytes.get(i)[0].toString());
+            list_bean.add(bean);
+        }
+
+        return list_bean;
+
+    }
+
     public void removeUser(UserTable user){
         manager = factory.createEntityManager();
         manager.getTransaction().begin();
