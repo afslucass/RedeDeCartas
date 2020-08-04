@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.br.rede_de_cartas.database.dao.UserDao;
 import com.br.rede_de_cartas.database.table.UserTable;
 import com.br.rede_de_cartas.model.interfaces.ModelInterface;
+import com.br.rede_de_cartas.util.CryptoString;
 import com.br.rede_de_cartas.util.SessionManager;
 
 @MultipartConfig
@@ -74,6 +75,8 @@ public class Register implements ModelInterface {
         // String confirmasenha = request.getParameter("confirmaesenha");
 
         part.close();
+
+        senha = new CryptoString().getEncode(senha);
 
         UserTable user = new UserTable();
         user.setNome(nome);

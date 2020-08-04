@@ -18,12 +18,13 @@ public class LoginController extends HttpServlet{
      */
     private static final long serialVersionUID = 1L;
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public void service(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         request.setCharacterEncoding("UTF-8");
         
         String dispatcher_string = new Login().execute(request, response);
 
         RequestDispatcher dispatcher = request.getRequestDispatcher(dispatcher_string);
         dispatcher.forward(request, response);
+        // response.sendRedirect("sendredirectget?redirecionador=" + dispatcher_string);
     }
 }

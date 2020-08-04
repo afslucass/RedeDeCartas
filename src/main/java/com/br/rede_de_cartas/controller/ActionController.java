@@ -44,6 +44,7 @@ public class ActionController extends HttpServlet{
 
         RequestDispatcher disp = request.getRequestDispatcher(redirecionador);
         disp.forward(request, response);
+        //response.sendRedirect("sendredirectget?redirecionador=" + redirecionador);
         
     }
 
@@ -64,5 +65,8 @@ public class ActionController extends HttpServlet{
 
         this.dispatcher = request.getRequestDispatcher(redirecionador);
         this.dispatcher.forward(request, response);
+        
+        // Nunca exponha o valor de 'redirecionador' na url como vc esta agr:
+        // response.sendRedirect("sendredirectget?redirecionador=" + redirecionador);
     }
 }

@@ -9,9 +9,6 @@ Fiz um projetinho de uma mini rede social onde o usuario publica 'cartas' e as m
 
 Fico muito grato com qualquer contribuição, desde ja obrigado. 
 
-Mudança de Arquitetura:
+Conclusão:
 
--> O servidor so vai mandar 175 caracteres da mensagem para a home.
--> Os botoes de visualizar serao substituidos por formularios que irao enviar para o servidor o id da mensagem.
--> O servidor ira tratar o id e mantar para 'visualizar.jsp' o nick, imagem, mensagem e o id da menssagem. 
--> 'visualizar.jsp' exibe os dados utilizando expression language.
+-> O projeto tem problemas relacionados a post-redirect-get, page-errors, criptografia, que eu queria me aprofundar. Mas acho que no geral deu para mim aprender bastante coisa e jaja começarei outros projetos...

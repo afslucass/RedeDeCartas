@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.br.rede_de_cartas.database.dao.UserDao;
 import com.br.rede_de_cartas.database.table.UserTable;
 import com.br.rede_de_cartas.model.interfaces.ModelInterface;
+import com.br.rede_de_cartas.util.CryptoString;
 import com.br.rede_de_cartas.util.SessionManager;
 
 public class Login implements ModelInterface{
@@ -18,6 +19,8 @@ public class Login implements ModelInterface{
             throws IOException, ServletException {
         String nick = request.getParameter("nick");
         String senha = request.getParameter("senha");
+        
+        senha = new CryptoString().getEncode(senha);
 
         UserTable getUser = new UserDao((EntityManagerFactory)request.getAttribute("factory")).getUserByNameAndPassword(nick, senha);
 
